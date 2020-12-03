@@ -8,6 +8,7 @@ func main() {
 		for _, n := range input {
 			if v+n == 2020 {
 				fmt.Println(v * n)
+				return
 			}
 		}
 	}

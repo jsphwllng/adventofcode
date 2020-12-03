@@ -33,7 +33,6 @@ func partOne() (answer int) {
 				answer++
 			}
 		}
-		fmt.Println(letterRange)
 	}
 	return
 }
@@ -62,6 +61,6 @@ func partTwo() (answer int) {
 }
 
 func main() {
-	fmt.Println(go partOne())
-	fmt.Println(go partTwo())
+	fmt.Println(partOne())
+	fmt.Println(partTwo())
 }
