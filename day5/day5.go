@@ -9,6 +9,7 @@ import (
 )
 
 var seatArray []int
+var highest int
 
 func contains(arr []int, seat int) bool {
 	for _, a := range arr {
@@ -30,14 +31,19 @@ func day5() {
 		input = strings.Replace(input, "R", "1", -1)
 		binary, _ := strconv.ParseInt(input, 2, 64)
 		seatArray = append(seatArray, int(binary))
+		if int(binary) > highest {
+			highest = int(binary)
+		}
 	}
+	fmt.Println("The highest seat number: ", highest)
 	for i := 0; i < 256*8; i++ {
 		if !contains(seatArray, i) && contains(seatArray, i+1) && contains(seatArray, i-1) {
-			fmt.Println(i)
+			fmt.Println("My seat: ", i)
 		}
 	}
 }
 
 func main() {
 	day5()
+	fmt.Println("Ho ho ho!")
 }
