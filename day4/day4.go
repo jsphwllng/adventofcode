@@ -6,6 +6,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // Input is the parsed text file
@@ -25,8 +26,10 @@ func parse() (parsed [][]string) {
 }
 
 func main() {
+	start := time.Now()
 	fmt.Println("Answer: ", part1(Input))
 	fmt.Println("Answer: ", part2(Input))
+	fmt.Println("time taken: ", time.Since(start))
 }
 
 func part1(input [][]string) (anwser int) {

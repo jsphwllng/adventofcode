@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var seatArray []int
@@ -36,7 +37,7 @@ func day5() {
 		}
 	}
 	fmt.Println("The highest seat number: ", highest)
-	for i := 0; i < 256*8; i++ {
+	for i := 0; i < highest; i++ {
 		if !contains(seatArray, i) && contains(seatArray, i+1) && contains(seatArray, i-1) {
 			fmt.Println("My seat: ", i)
 		}
@@ -44,6 +45,9 @@ func day5() {
 }
 
 func main() {
+	start := time.Now()
+	fmt.Println(start)
 	day5()
 	fmt.Println("Ho ho ho!")
+	fmt.Println(time.Since(start))
 }

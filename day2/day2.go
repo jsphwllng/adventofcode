@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func makeRange(min, max int) []int {
@@ -61,6 +62,8 @@ func partTwo() (answer int) {
 }
 
 func main() {
+	start := time.Now()
 	fmt.Println(partOne())
 	fmt.Println(partTwo())
+	fmt.Println("time taken: ", time.Since(start))
 }
