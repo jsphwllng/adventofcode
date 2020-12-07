@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+	"time"
 )
 
 var testingArray []string
@@ -15,8 +16,11 @@ var groupsAnswer string
 var answerTwo int
 
 func main() {
+	start := time.Now()
 	fmt.Println(day6One())
+	fmt.Println("time taken: ", time.Since(start))
 	fmt.Println(day6Two())
+	fmt.Println("time taken: ", time.Since(start))
 }
 
 func contains(arr []string, char string) bool {
@@ -78,7 +82,6 @@ func day6Two() int {
 					answerMap[string(question)]++
 				}
 			}
-			fmt.Println(answerMap)
 			for _, v := range answerMap {
 				if v == len(group) {
 					answerTwo++
