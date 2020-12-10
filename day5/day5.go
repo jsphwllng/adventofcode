@@ -46,8 +46,7 @@ func day5() {
 
 func main() {
 	start := time.Now()
-	fmt.Println(start)
 	day5()
 	fmt.Println("Ho ho ho!")
-	fmt.Println(time.Since(start))
+	fmt.Println("time taken: ", time.Since(start))
 }

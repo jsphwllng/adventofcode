@@ -24,6 +24,14 @@ time taken:  2.49411ms
 time taken:  5.547017ms
 ```
 
+*it is _marginally_ faster not to assign multiple variables on the same line* (by literally .5ms)
+
+```go
+total, answer := a, append(answer, a) //slow"
+total := a 
+answer := append(answer, a) //"faster"
+```
+
 ```go
           *
         .###.
