@@ -1,7 +1,3 @@
-// acc increases accumulator
-// jump jumps to the x code
-// nop does nothing
-
 package main
 
 import (
@@ -23,27 +19,28 @@ func contains(arr []int, instruction int) bool {
 	return false
 }
 
-func day8() (accumulator int) {
-	var i int
+func parseTxt() (instructionsArray []string) {
 	f, _ := ioutil.ReadFile("input.txt")
-	//as ReadFile returns bytes
 	str := string(f)
-	//divide up the instructions
-	instructionsArray := strings.Split(str, "\n")
+	instructionsArray = strings.Split(str, "\n")
+	return
+}
+
+func day8() (accumulator int) {
+	i := 0
+	instructionsArray := parseTxt()
 	for {
-		// divide up line into the command and the value
 		command := strings.Split(instructionsArray[i], " ")[0]
 		intValue, _ := strconv.Atoi(strings.Split(instructionsArray[i], " ")[1])
 		if !contains(completedInstructions, i) {
 			completedInstructions = append(completedInstructions, i)
 			if command == "acc" {
 				accumulator += intValue
-				i++
 			} else if command == "jmp" {
 				i += intValue
-			} else {
-				i++
+				continue
 			}
+			i++
 		} else {
 			return
 		}
